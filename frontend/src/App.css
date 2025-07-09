@@ -1,0 +1,29 @@
+@import './variable.css'; /* ✅ Make sure this path is correct */
+
+/* Default styles using CSS variables */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Optional class, now inheriting color */
+.read-the-docs {
+  color: inherit;
+}

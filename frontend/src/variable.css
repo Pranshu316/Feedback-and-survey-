@@ -1,0 +1,19 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+  --card-text: #000000;
+  --card-hover: #e0dede;
+  --border-color: #444;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --card-hover: #2c2c2c;
+  --border-color: #888;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+}

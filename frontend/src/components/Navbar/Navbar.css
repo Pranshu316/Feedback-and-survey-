@@ -1,0 +1,204 @@
+/* Default Light Mode (via :root) */
+:root {
+  --icon-color: #000000;
+  --text-color: #000000;
+  --bg-color: #ffffff;
+  --navbar-bg: #ffffff;
+  --sidebar-bg: #f0f0f0;
+  --profilebar-bg: #f0f0f0;
+  --search-bg: #ffffff;
+  --search-text: #000000;
+  --search-border: #cccccc;
+  --border-color: #cccccc;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --icon-color: #ffffff;
+  --text-color: #ffffff;
+  --bg-color: #121212;
+  --navbar-bg: #1e1e1e;
+  --sidebar-bg: #1a1a1a;
+  --profilebar-bg: #1a1a1a;
+  --search-bg: #1e1e1e;
+  --search-text: #ffffff;
+  --search-border: #444444;
+  --border-color: #444444;
+}
+
+/* Apply background + text to entire app */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: var(--navbar-bg);
+  color: var(--icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: background-color 0.3s;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.icon,
+.search-icon,
+.dark-mode-icon {
+  font-size: 24px;
+  color: var(--icon-color);
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Search */
+.navbar-center {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 20px;
+  position: relative;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  height: 36px;
+  padding: 8px 36px 8px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: var(--search-bg);
+  color: var(--search-text);
+  border: 1px solid var(--search-border);
+  outline: none;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.search-input::placeholder {
+  color: gray;
+  opacity: 0.7;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--search-text);
+  pointer-events: none;
+}
+
+/* Sidebar */
+.sideBar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 220px;
+  height: 100%;
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  border-right: 1px solid var(--border-color);
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  z-index: 1000;
+}
+
+.sideBar.open {
+  transform: translateX(0);
+}
+
+.sideBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sideBar li {
+  padding: 12px 0;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.sideBar li:hover {
+  color: #007bff;
+}
+
+/* Profile Bar */
+.profilebar {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 270px;
+  height: 45%;
+  background-color: var(--profilebar-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.profilebar.open {
+  transform: translateX(0);
+}
+
+.profilebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.profilePic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profilebar li {
+  color: var(--text-color);
+}
+
+.profilebar li:hover {
+  color: #007bff;
+}
+
+.profilebar button {
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.profilebar button:hover {
+  background-color: #007bff;
+  color: white;
+}

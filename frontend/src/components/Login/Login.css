@@ -1,0 +1,39 @@
+@import './src/variable.css';
+.login-container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80hv;
+}
+.login-box{
+    background-color:var(--bg-color);
+    padding: 30px;
+    border-radius: 10px;
+    border: 0.5px solid var(--border-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    margin-left: 600px;
+    margin-top: 50px;
+    height: 300px;
+}
+.login-box input{
+    display: block;
+    margin: 40px 0;
+    padding: 8px;
+    width: 200px;
+    color: rgb(255, 255, 255);
+    background-color: white;
+}
+.login-box button{
+    margin-left: 60px;
+    padding: 10px 20px 10px 20px ;
+    
+    
+}
+.User-text{
+    margin-left: 30%;
+    font: bold;
+    
+}
