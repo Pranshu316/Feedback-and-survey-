@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import "./BlankForm.css";
+import './BlankForm.css';
 
 const BlankForm = () => {
   const [questions, setQuestions] = useState([]);
-  const [mode, setMode] = useState("edit"); // "edit" | "preview"
+  const [mode, setMode] = useState("edit");
 
   const addQuestion = () => {
     setQuestions(prev => [
@@ -31,7 +31,7 @@ const BlankForm = () => {
 
   return (
     <div className="container">
-      <h2>{mode === "edit" ? "Build Your Form" : "Preview Form"}</h2>
+      <h2>{mode === "edit" ? "🛠️ Build Your Form" : "👀 Preview Form"}</h2>
 
       {mode === "edit" && (
         <>
@@ -50,15 +50,18 @@ const BlankForm = () => {
 
       {mode === "preview" && (
         <>
-          {questions.length === 0 && <p>No questions to show</p>}
+          {questions.length === 0 && <p>No questions to show.</p>}
           {questions.map((q, idx) => (
             <div key={q.id} className="preview-question">
               <p><strong>Q{idx + 1}:</strong> {q.title}</p>
+
               {q.type === "short" && <input type="text" placeholder="Short answer" />}
               {q.type === "paragraph" && <textarea placeholder="Paragraph answer" />}
               {q.type === "file" && <input type="file" />}
               {q.type === "checkbox" && q.options.map((opt, i) => (
-                <label key={i}><input type="checkbox" /> {opt}</label>
+                <label key={i}>
+                  <input type="checkbox" /> {opt}
+                </label>
               ))}
               {q.type === "dropdown" && (
                 <select>
@@ -67,6 +70,13 @@ const BlankForm = () => {
                     <option key={i} value={opt}>{opt}</option>
                   ))}
                 </select>
+              )}
+              {q.type === "button" && (
+                <div className="button-group">
+                  {q.options.map((opt, i) => (
+                    <button key={i} className="preview-button">{opt || `Button ${i + 1}`}</button>
+                  ))}
+                </div>
               )}
             </div>
           ))}
@@ -112,16 +122,21 @@ const QuestionEditor = ({ question, onChange, onDelete }) => {
       <select
         className="q-type"
         value={type}
-        onChange={e => onChange({ type: e.target.value })}
+        onChange={e => {
+          const newType = e.target.value;
+          const newOptions = (["checkbox", "dropdown", "button"].includes(newType)) ? [''] : [];
+          onChange({ type: newType, options: newOptions });
+        }}
       >
         <option value="short">Short Answer</option>
         <option value="paragraph">Paragraph</option>
         <option value="checkbox">Checkboxes</option>
         <option value="file">File Upload</option>
         <option value="dropdown">Dropdown</option>
+        <option value="button">Button</option>
       </select>
 
-      {(type === 'checkbox' || type === 'dropdown') && (
+      {(type === 'checkbox' || type === 'dropdown' || type === 'button') && (
         <div className="options">
           {options.map((opt, idx) => (
             <div key={idx} className="option">
@@ -138,9 +153,7 @@ const QuestionEditor = ({ question, onChange, onDelete }) => {
         </div>
       )}
 
-      <button className="delete-q" onClick={onDelete}>
-        Delete Question
-      </button>
+      <button className="delete-q" onClick={onDelete}>🗑 Delete Question</button>
     </div>
   );
 };
