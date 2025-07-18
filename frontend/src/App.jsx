@@ -4,6 +4,9 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import BlankForm from './components/BlankForm/BlankForm';
+import FeedbackFrom from './components/FeedbackForm/FeedbackForm';
+import SurveyForm from './components/SurveyForm/SurveyForm';
+import ContactForm from './components/ContactForm/ContactForm';
 import './App.css';
 
 function App() {
@@ -38,6 +41,12 @@ function App() {
            />} />
           <Route path="/login" element={<Login />} />
           <Route path="/blankform" element={<BlankForm />} />
+          <Route path ="/feedbackfrom" element={<FeedbackFrom />} />
+          <Route path ="/surveyform" element={<SurveyForm />} />
+          <Route path ="/contactform" element={<ContactForm />} />
+
+
+
         </Routes>
       </div>
     </Router>

@@ -3,11 +3,17 @@
   --text-color: #000000;
   --card-bg: #ffffff;
   --card-text: #000000;
-  --card-hover: #e0dede;
-  --border-color: #444;
-  --shadow-color: rgba(0, 0, 0, 0.3);
+  --card-hover: #f5f5f5;
+  --border-color: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --primary-color: #007bff;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --text-dark: #212529;
+  --text-light: #f8f9fa;
 }
 
+/* Dark Mode */
 body.dark-mode {
   --bg-color: #121212;
   --text-color: #ffffff;
@@ -16,4 +22,6 @@ body.dark-mode {
   --card-hover: #2c2c2c;
   --border-color: #888;
   --shadow-color: rgba(255, 255, 255, 0.1);
+  --text-dark: #ffffff;
+  --text-light: #d1d1d1;
 }

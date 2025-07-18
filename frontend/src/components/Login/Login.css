@@ -1,4 +1,4 @@
-@import './src/variable.css';
+@import "../../variable.css";
 .login-container{
     margin-top: 100px;
     display: flex;

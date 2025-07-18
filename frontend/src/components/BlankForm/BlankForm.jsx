@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './BlankForm.css';
-//update file
+
 const BlankForm = () => {
   const [questions, setQuestions] = useState([]);
   const [mode, setMode] = useState("edit");
@@ -108,33 +108,37 @@ const QuestionEditor = ({ question, onChange, onDelete }) => {
     const updated = options.filter((_, i) => i !== index);
     onChange({ options: updated });
   };
-
+  
   return (
     <div className="question">
-      <input
-        type="text"
-        className="q-title"
-        placeholder="Enter your question..."
-        value={title}
-        onChange={e => onChange({ title: e.target.value })}
-      />
+      <div className="input-group">
+        <input
+          type="text"
+          className="q-title"
+          placeholder="Enter your question..."
+          value={title}
+          onChange={e => onChange({ title: e.target.value })}
+        />
+      </div>
 
-      <select
-        className="q-type"
-        value={type}
-        onChange={e => {
-          const newType = e.target.value;
-          const newOptions = (["checkbox", "dropdown", "button"].includes(newType)) ? [''] : [];
-          onChange({ type: newType, options: newOptions });
-        }}
-      >
-        <option value="short">Short Answer</option>
-        <option value="paragraph">Paragraph</option>
-        <option value="checkbox">Checkboxes</option>
-        <option value="file">File Upload</option>
-        <option value="dropdown">Dropdown</option>
-        <option value="button">Button</option>
-      </select>
+      <div className="input-group">
+        <select
+          className="q-type"
+          value={type}
+          onChange={e => {
+            const newType = e.target.value;
+            const newOptions = (["checkbox", "dropdown", "button"].includes(newType)) ? [''] : [];
+            onChange({ type: newType, options: newOptions });
+          }}
+        >
+          <option value="short">Short Answer</option>
+          <option value="paragraph">Paragraph</option>
+          <option value="checkbox">Checkboxes</option>
+          <option value="file">File Upload</option>
+          <option value="dropdown">Dropdown</option>
+          <option value="button">Button</option>
+        </select>
+      </div>
 
       {(type === 'checkbox' || type === 'dropdown' || type === 'button') && (
         <div className="options">

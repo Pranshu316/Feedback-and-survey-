@@ -1,54 +1,62 @@
+
+
+/* Light Mode */
 :root {
-  --bg-color: #f9f9f9;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+  --card-text: #000000;
+  --card-hover: #f5f5f5;
   --border-color: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.15);
   --primary-color: #007bff;
-  --danger-color: #dc3545;
   --success-color: #28a745;
-  --text-dark: #333;
+  --danger-color: #dc3545;
+  --text-dark: #212529;
+  --text-light: #f8f9fa;
 }
 
-/* Container for the full form */
+/* Dark Mode */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --card-hover: #2c2c2c;
+  --border-color: #888;
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --text-dark: #ffffff;
+  --text-light: #d1d1d1;
+}
+
 .container {
-  padding: 80px 20px 20px;
-  max-width: 800px;
-  margin-left:550px;
-  font-family: Arial, sans-serif;
-  border-radius: 1px;
-  border: #0d0d0d;
-  box-shadow: #333;
-  color: var(--text-dark);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Heading */
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-/* Shared button styling */
-button {
-  cursor: pointer;
-  display: block;
-  margin: 10px auto;
-}
-
-/* Add Question Button */
-.add-q {
-  padding: 10px 16px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-/* Question Editing Box */
-.question {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 690px;
+  width: 90%;
   background-color: var(--bg-color);
-  padding: 100px;
+  color: var(--text-dark);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Input group wrapper */
+.input-group {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 16px;
+  text-align: left;
+}
+
+.question {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 24px;
   margin-bottom: 15px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
@@ -56,34 +64,40 @@ button {
   max-width: 600px;
 }
 
-/* Inputs for title, type, and option */
 .q-title,
 .q-type,
-.option input {
+.option input,
+.input-group input,
+.input-group select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px;
   font-size: 14px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
+  text-align: center;
 }
 
-/* Option Input Layout */
-.options {
-  margin-top: 10px;
+.add-q,
+.create-btn,
+.edit-btn {
+  padding: 10px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-.option {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-/* Add and Delete Option Buttons */
 .add-opt {
   background-color: var(--success-color);
   color: white;
@@ -100,20 +114,27 @@ button {
   border-radius: 4px;
 }
 
-/* Create and Edit Form Buttons */
-.create-btn,
-.edit-btn {
-  padding: 10px 16px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
+/* Option layout */
+.options {
+  margin-top: 10px;
 }
 
-/* Preview Form Styling */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 10px;
+}
+
+.option input {
+  flex: 1;
+}
+
 .preview-question {
-  background: var(--bg-color);
+  background: var(--card-bg);
+  color: var(--card-text);
   padding: 15px;
   border: 1px solid var(--border-color);
   margin-bottom: 20px;
@@ -123,31 +144,29 @@ button {
   text-align: left;
 }
 
-/* Preview Inputs */
 .preview-question input,
 .preview-question textarea,
 .preview-question select {
   width: 100%;
   padding: 6px;
-  margin-top: 8px;
-  margin-bottom: 12px;
+  margin: 8px 0 12px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 14px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
-/* Checkbox Labels */
 .preview-question label {
   display: block;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin: 6px 0;
   font-size: 14px;
 }
 
-/* Share Link Block */
+/* Share link */
 .share-link {
   margin-top: 20px;
-  background-color: #f3f3f3;
+  background-color: var(--card-hover);
   padding: 10px;
   border-radius: 6px;
   font-size: 14px;
@@ -155,7 +174,17 @@ button {
   width: 100%;
   max-width: 600px;
   text-align: center;
+  color: var(--text-color);
 }
+
+/* Button group */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
 .preview-button {
   padding: 10px 16px;
   background-color: var(--primary-color);
@@ -164,10 +193,4 @@ button {
   border-radius: 5px;
   margin: 6px 6px 12px 0;
   cursor: pointer;
-}
-
-.button-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
 }

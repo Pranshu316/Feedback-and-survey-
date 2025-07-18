@@ -1,0 +1,134 @@
+@import "../../variable.css";
+
+/* Light Mode Defaults */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #ffffff;
+  --card-text: #000000;
+  --border-color: #ccc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --primary-color: #1a73e8;
+  --primary-hover: #1669c1;
+  --text-dark: #212529;
+  --text-light: #f8f9fa;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --card-text: #ffffff;
+  --border-color: #444;
+  --shadow-color: rgba(255, 255, 255, 0.05);
+  --primary-color: #4a90e2;
+  --primary-hover: #357ab8;
+  --text-dark: #ffffff;
+  --text-light: #d1d1d1;
+}
+
+/* Global Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Form Container */
+.contact-form {
+  width: 100%;
+  max-width: 640px;
+  margin: 40px 16px;
+  padding: 32px;
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow-color);
+}
+
+/* Headings */
+.contact-heading {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+/* Form Rows */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* Input & Select Fields */
+.contact-input,
+.contact-textarea,
+select {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: border 0.2s, background-color 0.2s;
+}
+
+/* Focus effect */
+.contact-input:focus,
+.contact-textarea:focus,
+select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Textarea specific */
+.contact-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit & Action Buttons */
+.contact-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.contact-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 24px 16px;
+  }
+
+  .contact-row {
+    flex-direction: column;
+  }
+
+  .contact-button {
+    width: 100%;
+    text-align: center;
+  }
+}
