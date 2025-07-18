@@ -1,3 +1,90 @@
-h3{
-    margin-top: 100px;
+@import "../../variable.css";
+
+.feedback-form {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 24px;
+  max-width: 700px;
+  margin: 30px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.feedback-heading {
+  color: var(--text-dark);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.feedback-row {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feedback-input,
+.feedback-textarea,
+.feedback-row select,
+.feedback-checkbox input,
+.feedback-radio input {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.feedback-input:focus,
+.feedback-textarea:focus,
+.feedback-row select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+.feedback-textarea {
+  resize: vertical;
+}
+
+.feedback-button {
+  padding: 10px 16px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.feedback-button:hover {
+  background-color: #005fcc;
+}
+
+.feedback-radio,
+.feedback-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.feedback-radio label,
+.feedback-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.feedback-row select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
