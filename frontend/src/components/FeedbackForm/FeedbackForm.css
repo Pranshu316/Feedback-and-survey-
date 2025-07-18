@@ -4,7 +4,7 @@
   background-color: var(--card-bg);
   color: var(--card-text);
   padding: 24px;
-  max-width: 700px;
+  width: 900px; /* Increased from 700px to 900px */
   margin: 30px auto;
   border-radius: 12px;
   box-shadow: 0 0 10px var(--shadow-color);
@@ -14,11 +14,11 @@
 .feedback-heading {
   color: var(--text-dark);
   font-size: 24px;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .feedback-row {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -29,7 +29,7 @@
 .feedback-row select,
 .feedback-checkbox input,
 .feedback-radio input {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 16px;
@@ -51,7 +51,7 @@
 }
 
 .feedback-button {
-  padding: 10px 16px;
+  padding: 12px 20px;
   background-color: var(--primary-color);
   color: var(--text-light);
   border: none;
@@ -60,6 +60,7 @@
   font-weight: bold;
   transition: background-color 0.3s ease;
   align-self: flex-start;
+  margin-top: 10px;
 }
 
 .feedback-button:hover {
@@ -70,15 +71,15 @@
 .feedback-checkbox {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-top: 6px;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .feedback-radio label,
 .feedback-checkbox label {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 16px;
   color: var(--text-color);
 }

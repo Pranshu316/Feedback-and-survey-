@@ -48,6 +48,10 @@ const FeedbackForm = () => {
     setNewField({ ...newField, options: [...newField.options, ''] });
   };
 
+  const handleBackToEdit = () => {
+    setPreviewMode(false);
+  };
+
   return (
     <div className="feedback-form">
       <h1 className="feedback-heading">Feedback Form</h1>
@@ -219,6 +223,11 @@ const FeedbackForm = () => {
               readOnly
               onClick={(e) => e.target.select()}
             />
+          </div>
+          <div className="feedback-row">
+            <button type="button" className="feedback-button" onClick={handleBackToEdit}>
+              Back to Edit
+            </button>
           </div>
         </>
       )}
